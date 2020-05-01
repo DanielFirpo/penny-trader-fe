@@ -1,0 +1,157 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+#navbar {
+  display: flex;
+  height: 40px;
+  background-color: #282c34;
+  align-items: center;
+  justify-content: flex-end;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#navbar-title {
+  margin-right: auto;
+}
+
+#navbar-title a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-link a {
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+}
+
+.navbar-link {
+  color: white;
+  cursor: pointer;
+}
+
+#admin-dashboard-title {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.admin-dashboard-button {
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 30px;
+}
+
+.admin-dashboard-link {
+  text-decoration: none;
+  padding-bottom: 50px;
+}
+
+#admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-title {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#register-form {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  padding-left: 25vw;
+}
+
+.register-form-input {
+  margin-bottom: 20px;
+  height: 25px;
+}
+
+#register-form-submit-button {
+  width: 100px;
+  margin-left: auto;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  padding-left: 25vw;
+}
+
+.login-form-input {
+  margin-bottom: 20px;
+  height: 25px;
+}
+
+#login-form-submit-button {
+  width: 100px;
+  margin-left: auto;
+}
+
+#toast {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  margin: 20px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
