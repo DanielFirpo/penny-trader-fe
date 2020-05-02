@@ -38,7 +38,10 @@ function App() {
       <Route path="/login/" component={Login} />
       <Route path="/admindashboard/" component={Dashboard} />
       <Route path="/addproduct/" component={AddProduct} />
-      <Route path="/editproduct/" component={EditProduct} />
+      <Route 
+      path="/editproduct/"
+      render={(props) => <EditProduct {...props} isAuthed={true} />}
+      />
       <Route path="/viewproducts/" component={Products} />
       <Route path="/vieworders/" component={Orders} />
       <Route path="/order/" component={Order} />
