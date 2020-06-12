@@ -14,8 +14,11 @@ function Navbar() {
             <div id="navbar-title">
                 <Link to="/">Penny Trader</Link>
             </div>
+            <div className="navbar-link">
+                <Link to="/cart">Cart</Link>
+            </div>
             {
-                localStorage.getItem("administrator") == "true" ?
+                localStorage.getItem("administrator") == "true" && localStorage.getItem("token") ?
                     <div className="navbar-link">
                         <Link to="/admindashboard">Admin Dashboard</Link>
                     </div>
@@ -33,15 +36,9 @@ function Navbar() {
                         </div>
                     </>
                     :
-                    <></>
-            }
-            {
-                localStorage.getItem("token") ?
                     <div className="navbar-link" onClick={(e) => { localStorage.removeItem("token"); localStorage.removeItem("administrator"); history.push("/"); setForceUpdate(!forceUpdate);}}>
-                        Logout
+                    Logout
                     </div>
-                    :
-                    <></>
             }
         </div>
     );

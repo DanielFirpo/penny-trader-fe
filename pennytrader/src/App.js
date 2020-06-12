@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import { Elements } from '@stripe/react-stripe-js';
@@ -23,7 +22,10 @@ import EditProduct from "./components/pages/Admin/EditProduct"
 import Orders from "./components/pages/Admin/Orders"
 import Order from "./components/pages/Admin/Order"
 import Products from "./components/pages/Admin/Products"
+import Cart from "./components/pages/User/Cart"
 import Toast from "./components/Toast"
+import CheckoutSuccess from './components/pages/User/CheckoutSuccess';
+import CheckoutFailure from './components/pages/User/CheckoutFailure';
 
 // const stripePromise = loadStripe('TODO: Aquire public stripe key');
 
@@ -36,15 +38,20 @@ function App() {
       <Route exact path="/" component={Homepage} />
       <Route path="/register/" component={Register} />
       <Route path="/login/" component={Login} />
-      <Route path="/admindashboard/" component={Dashboard} />
-      <Route path="/addproduct/" component={AddProduct} />
+      <Route path="/cart/" component={Cart} />
+
+      <Route path="/checkoutsuccess" component={CheckoutSuccess} />
+      <Route path="/checkoutfailure/" component={CheckoutFailure} />
+
+      <PrivateRoute path="/admindashboard/" component={Dashboard} />
+      <PrivateRoute path="/addproduct/" component={AddProduct} />
       <Route 
       path="/editproduct/"
       render={(props) => <EditProduct {...props} isAuthed={true} />}
       />
-      <Route path="/viewproducts/" component={Products} />
-      <Route path="/vieworders/" component={Orders} />
-      <Route path="/order/" component={Order} />
+      <PrivateRoute path="/viewproducts/" component={Products} />
+      <PrivateRoute path="/vieworders/" component={Orders} />
+      <PrivateRoute path="/order/" component={Order} />
       {/* footer */}
     </div>
   );

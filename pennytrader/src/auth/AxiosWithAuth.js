@@ -7,10 +7,12 @@ export const axiosWithAuth = () => {
     //const history = useHistory();
 
     const token = localStorage.getItem('token');
-
-    if (token === "undefined") {
+    console.log("token " + token);
+    if (!token) {
         // setToast("")
         //history.push("/");
+        // window.location.href = window.location.href.protocol + "//" + window.location.href.host + "/" + window.location.href.pathname.split('/')[1];
+        console.log("token undefined");
     }
 
     return axios.create({

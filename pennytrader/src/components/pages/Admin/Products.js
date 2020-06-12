@@ -29,7 +29,7 @@ function Products(props) {
 
     function fetchProducts() {
         axiosWithAuth()
-            .get("/admin/products?pageNumber=" + pageNumber)
+            .get("/products/products?pageNumber=" + pageNumber)
             .then(function (response) {
                 console.log(response)
                 setProducts(response.data.data)
@@ -41,7 +41,7 @@ function Products(props) {
 
     function fetchProductSearch() {
         axiosWithAuth()
-            .get("/admin/search?pageNumber=" + pageNumber + "&searchTerm=" + searchTerm)
+            .get("/products/search?pageNumber=" + pageNumber + "&searchTerm=" + searchTerm)
             .then(function (response) {
                 console.log(response)
                 setProducts(response.data.data)
@@ -54,7 +54,7 @@ function Products(props) {
     return (
         <div id="products">
             <h1 className="page-title">Products</h1>
-            <form>
+            <form id="products-search">
                 <input type="text" name="search" placeholder="Search..." value={searchTerm} onChange={(e) => {
                     setSearchTerm(e.target.value)
                 }}></input>
@@ -65,39 +65,45 @@ function Products(props) {
                     fetchProductSearch();
                 }}>Search</button>
             </form>
-            {
-                products.map((item) => {
-                    console.log("item: " + item);
-                    return (
-                        <div>
-                            <img src={process.env.REACT_APP_API_URL + "images/products/" + item.image_name}></img>
-                            <p>{item.name}</p>
-                            <p>{item.year}</p>
-                            <p>{item.price}</p>
-                            <p>{item.description}</p>
-                            <Link to={{ pathname: '/editproduct', search: `?id=${item.id}&name=${item.name}&year=${item.year}&price=${item.price}&description=${item.description}` }}>
-                                <div id="edit-product">Edit</div>
-                            </Link>
-                            <div id="edit-product" onClick={() => {
-                                axiosWithAuth()
-                                    .delete(`${process.env.REACT_APP_API_URL}admin/delete?id=${item.id}`)
-                                    .then(function (response) {
-                                        props.setToast("Successfully Deleted Product")
-                                        setSearchTerm("8127018237102391823128371293712893712983712837123871923871238719387123712837192837198237918237918273198237918731928731283718237192837");
-                                        setSearchTerm(searchTerm);//fetch products again now that we deleted that one
-                                    })
-                                    .catch(function (error) {
-                                        console.log(error.response)
-                                    })
-                            }}>Delete</div>
-                        </div>
-                    )
-                })
-            }
+            <div id="product-list">
+                {
+                    products.map((item) => {
+                        console.log("item: " + item);
+                        return (
+                            <div id="product-container">
+                                <img id="product-image" src={process.env.REACT_APP_API_URL + "images/products/" + item.image_name}></img>
+                                <div id="product-info-list">
+                                    <p className="product-info">Name: {item.name}</p>
+                                    <p className="product-info">Year: {item.year}</p>
+                                    <p className="product-info">Price: ${item.price/100}</p>
+                                    <p className="product-info">Description: {item.description}</p>
+                                </div>
+                                <div id="product-buttons-container">
+                                    <Link to={{ pathname: '/editproduct', search: `?id=${item.id}&name=${item.name}&year=${item.year}&price=${item.price}&description=${item.description}&status=${item.status}` }}>
+                                        <div className="product-button">Edit</div>
+                                    </Link>
+                                    <div className="product-button" onClick={() => {
+                                        axiosWithAuth()
+                                            .delete(`${process.env.REACT_APP_API_URL}admin/delete?id=${item.id}`)
+                                            .then(function (response) {
+                                                props.setToast("Successfully Deleted Product")
+                                                setSearchTerm("8127018237102391823128371293712893712983712837123871923871238719387123712837192837198237918237918273198237918731928731283718237192837    ");
+                                                setSearchTerm(searchTerm);//fetch products again now that we deleted that one
+                                            })
+                                            .catch(function (error) {
+                                                console.log(error.response)
+                                            })
+                                    }}>Delete</div>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+            </div>
             <div id="page-controls">
-                <div id="previous-page" onClick={() => { pageNumber == 0 ? setPageNumber(0) : setPageNumber(pageNumber - 1) }}>Prev</div>
+                <div className="page-control" id="previous-page" onClick={() => { pageNumber == 0 ? setPageNumber(0) : setPageNumber(pageNumber - 1) }}>Prev</div>
                 <div id="page-number">{pageNumber + 1}</div>
-                <div id="next-page" onClick={() => { setPageNumber(pageNumber + 1) }}>Next</div>
+                <div className="page-control" id="next-page" onClick={() => { setPageNumber(pageNumber + 1) }}>Next</div>
             </div>
         </div>
     );

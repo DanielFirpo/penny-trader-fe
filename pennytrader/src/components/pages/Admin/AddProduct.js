@@ -11,6 +11,7 @@ function AddProduct(props) {
     const [year, setYear] = useState(19);
     const [price, setPrice] = useState();
     const [description, setDescription] = useState("");
+    const [status, setStatus] = useState(1);//0 = unlisted, 1 = listed, 2 = sold
 
     const [imageRef, setImageRef] = useState();
 
@@ -42,13 +43,30 @@ function AddProduct(props) {
 
             <h1 className="page-title">Add Coin</h1>
 
-            <form id="login-form" name="login" method="POST" enctype="multipart/form-data">
+            <form id="login-form" name="login" method="POST" encType="multipart/form-data">
                 {/* <input type="file" name="imageName" placeholder="Coin Image" className="add-coin-form-input" id="add-coin-form-image" onChange={(e) => { setImageName(e.target.value) }}></input> */}
+                <p className="coin-input-title">Image (optional)</p>
                 <input type="file" ref={imageInput} name="coinImage" onChange={(e) => { setImage(e.target.files[0]);}}/>
+                <p className="coin-input-title">Name</p>
                 <input type="text" value={name} name="name" placeholder="Coin Name" className="add-coin-form-input" id="add-coin-form-name" onChange={(e) => { setName(e.target.value) }}></input>
-                <input type="number" value={year} defaultValue={19} name="year" placeholder="Year of coin" className="add-coin-form-input" id="add-coin-form-year" onChange={(e) => { setYear(e.target.value) }}></input>
+                <p className="coin-input-title">Year</p>
+                <input type="number" value={year} name="year" placeholder="Year of coin" className="add-coin-form-input" id="add-coin-form-year" onChange={(e) => { setYear(e.target.value) }}></input>
+                <p className="coin-input-title">Price</p>
                 <input type="number" value={price} name="price" placeholder="Price of coin in dollars (e.g. 3.25)" className="add-coin-form-input" id="add-coin-form-price" onChange={(e) => { setPrice(e.target.value) }}></input>
+                <p className="coin-input-title">Description (optional)</p>
                 <input type="text" value={description} name="description" placeholder="Description of coin" className="add-coin-form-input" id="add-coin-form-description" onChange={(e) => { setDescription(e.target.value) }}></input>
+                <label>
+                    Listed
+                    <input type="checkbox" name="listed" checked={status === 1} onChange={() => {setStatus(1)}}/>
+                </label>
+                <label>
+                    Unlisted
+                    <input type="checkbox" name="unlisted" checked={status === 0} onChange={() => {setStatus(0)}}/>
+                </label>
+                <label>
+                    Sold
+                    <input type="checkbox" name="sold" checked={status === 2} onChange={() => {setStatus(2)}}/>
+                </label>
                 <button type="submit" onClick={(e) => {
                     e.preventDefault();
                     let formData = new FormData();
@@ -57,6 +75,7 @@ function AddProduct(props) {
                     formData.append('year', year);
                     formData.append('price', price);
                     formData.append('description', description);
+                    formData.append('status', status);
 
                     const config = {
                         headers: {
@@ -76,7 +95,7 @@ function AddProduct(props) {
                         // console.log(error.response)
                         setError(error.response.data.message)
                     })
-                }} id="login-form-submit-button">Submit</button>
+                }} id="add-coin-form-submit-button">Submit</button>
             </form>
             <p>{error}</p>
         </div>
