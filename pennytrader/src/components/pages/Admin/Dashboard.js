@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 function Dashboard() {
     return (
-        <div id="admin-dashboard">
-            <h1 id="admin-dashboard-title">Admin Dashboard</h1>
+        <div id="admin-dashboard" className="page-height page-padding">
+            <h1 className="page-title">Admin Dashboard</h1>
             <Link className="admin-dashboard-link" to="addproduct">
                 <div className="admin-dashboard-button">
                     <div>Add A Product</div>
@@ -19,6 +19,11 @@ function Dashboard() {
             <Link className="admin-dashboard-link" to="vieworders">
                 <div className="admin-dashboard-button">
                     <div>View All Orders</div>
+                </div>
+            </Link>
+            <Link className="admin-dashboard-link" to="storesettings">
+                <div className="admin-dashboard-button">
+                    <div>Store Settings</div>
                 </div>
             </Link>
         </div>

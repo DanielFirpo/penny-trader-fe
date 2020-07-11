@@ -39,11 +39,11 @@ function AddProduct(props) {
     }
 
     return (
-        <div id="login">
+        <div id="add-product" className="page-height page-padding">
 
             <h1 className="page-title">Add Coin</h1>
 
-            <form id="login-form" name="login" method="POST" encType="multipart/form-data">
+            <form id="add-product-form" name="login" method="POST" encType="multipart/form-data">
                 {/* <input type="file" name="imageName" placeholder="Coin Image" className="add-coin-form-input" id="add-coin-form-image" onChange={(e) => { setImageName(e.target.value) }}></input> */}
                 <p className="coin-input-title">Image (optional)</p>
                 <input type="file" ref={imageInput} name="coinImage" onChange={(e) => { setImage(e.target.files[0]);}}/>

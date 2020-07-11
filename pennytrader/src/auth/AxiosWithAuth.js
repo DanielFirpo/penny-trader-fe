@@ -4,13 +4,13 @@ import { setToast } from "../actions/actions"
 
 export const axiosWithAuth = () => {
 
-    //const history = useHistory();
+    // const history = useHistory();
 
     const token = localStorage.getItem('token');
     console.log("token " + token);
     if (!token) {
         // setToast("")
-        //history.push("/");
+        window.location = "/login"
         // window.location.href = window.location.href.protocol + "//" + window.location.href.host + "/" + window.location.href.pathname.split('/')[1];
         console.log("token undefined");
     }

@@ -1,12 +1,14 @@
 import {
-    SET_TOAST
+    SET_TOAST,
+    SET_IMAGE
 } from "../actions/actions"
 
 let initialState = {
     toast: {
         text: undefined,
-        color: undefined
-    }
+        type: undefined
+    },
+    image: undefined
 }
 
 function reducer(state = initialState, action) {
@@ -24,8 +26,13 @@ function reducer(state = initialState, action) {
                 ...state,
                 toast: {
                     text: action.payload.text,
-                    color: action.payload.color
+                    type: action.payload.type
                 }
+            }
+        case SET_IMAGE:
+            return {
+                ...state,
+                image: action.payload.image
             }
         default:
             console.log(`\nUnknown action type:\n${action.type}`);

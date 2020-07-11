@@ -37,7 +37,7 @@ function EditProduct(props) {
     console.log("Status " + status)
 
     return (
-        <div id="login">
+        <div id="edit-product" className="page-height page-padding">
 
             <h1 className="page-title">Edit Coin</h1>
 
