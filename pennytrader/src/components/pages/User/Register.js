@@ -38,7 +38,7 @@ function Register(props) {
                                 localStorage.setItem('token', response.data.token);
                                 localStorage.setItem('administrator', response.data.administrator);
                                 props.setToast("Account Created", "success")
-                                history.push("/");
+                                history.push("/verifyprompt");
                             })
                             .catch(function (error) {
                                 // console.log(error.response)

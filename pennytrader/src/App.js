@@ -35,6 +35,8 @@ import ViewImage from "./components/ViewImage"
 import Order from "./components/pages/User/Order"
 import PrivacyPolicy from './components/pages/User/PrivacyPolicy';
 import TermsOfService from './components/pages/User/TermsOfService';
+import VerifyEmail from './components/pages/User/VerifyEmail';
+import VerifyPrompt from "./components/pages/User/VerifyPrompt"
 
 // const stripePromise = loadStripe('TODO: Aquire public stripe key');
 
@@ -51,6 +53,8 @@ function App() {
       <Route exact path="/" component={Homepage} />
       <Route path="/register/" component={Register} />
       <Route path="/login/" component={Login} />
+      <Route path="/verifyprompt/" component={VerifyPrompt} />
+      <Route path="/verify/" component={VerifyEmail} />
       <Route path="/cart/" component={Cart} />
       <Route path="/checkout/" component={Checkout} />
       <Route path="/contact/" component={Contact} />
