@@ -39,7 +39,7 @@ function Account(props) {
             <h1 className="page-title">Your Account</h1>
             <p className="page-subtitle">Orders</p>
             <div id="account-orders-table">
-                <div id="orders-table-titles" className="row-display"><div className="full-width">Order ID</div><div className="full-width">Total</div><div className="full-width">Status</div><div className="full-width">Date</div></div>
+                <div id="orders-table-titles" className="row-display"><div className="full-width">ID</div><div className="full-width">Total</div><div className="full-width">Status</div><div className="full-width">Date</div></div>
                 <div id="orders-table-values" className="column-display">
                     {
                         orders.map((order, index) => {

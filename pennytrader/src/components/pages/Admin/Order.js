@@ -3,6 +3,8 @@ import qs from "qs";
 import { axiosWithAuth } from "../../../auth/AxiosWithAuth"
 import { Link } from "react-router-dom"
 import CartItem from '../../CartItem';
+import { setToast } from '../../../actions/actions';
+import {connect} from "react-redux"
 
 function Order(props) {
 
@@ -35,6 +37,7 @@ function Order(props) {
             axiosWithAuth().put(`${process.env.REACT_APP_API_URL}admin/orderstatus?id=${qs.parse(props.location.search, { ignoreQueryPrefix: true }).id}`, { status: status })
                 .then(res => {
                     //reload page
+                    props.setToast("Order Status Updated")
                     window.location.reload();
                     console.log("status updated");
                 })
@@ -105,4 +108,7 @@ function Order(props) {
     );
 }
 
-export default Order;
+const mapStateToProps = state => ({
+});
+
+export default connect(mapStateToProps, { setToast })(Order);

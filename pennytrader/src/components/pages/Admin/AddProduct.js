@@ -31,11 +31,30 @@ function AddProduct(props) {
     // }
 
     function clearForm () {
-        setName("")
+        if(isNaN(parseInt(name)) ) {
+            setName("")
+        }else {
+            setName(incrementName(name))
+        }
         setYear(19)
         setPrice("")
         setDescription("")
         imageRef.value = "";
+    }
+
+    //add 1 to the name but preserve leading 0s: 000321 --> 000322
+    function incrementName(str) {
+        let zeros = ""
+        let done = false
+        for (let i = 0; i < str.length; i++) {
+            if(str[i] == "0" && !done && i != str.length - 1) {
+                zeros+="0"
+            }
+            else {
+                done = true;
+            }
+        }
+        return zeros + (parseInt(str.substring(zeros.length - 1)) + 1).toString();
     }
 
     return (

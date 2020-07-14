@@ -86,7 +86,7 @@ function EditProduct(props) {
                     axios.post(`${process.env.REACT_APP_API_URL}admin/edit`, formData, config)
                     .then(function (response) {
                         props.setToast("Edited product");
-                        history.push("/viewproducts");
+                        history.push("/admin/viewproducts");
                     })
                     .catch(function (error) {
                         // console.log(error.response)

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import qs from "qs";
 import { axiosWithAuth } from "../../../auth/AxiosWithAuth"
 import { Link } from "react-router-dom"
-import OrderItem from "../../OrderItem"
+import CartItem from "../../CartItem"
 
 function Order(props) {
 
@@ -101,7 +101,7 @@ function Order(props) {
                             {
                                 order.items.map((item) => {
                                     return (
-                                        <OrderItem item={item}></OrderItem>
+                                        <CartItem hideButton="yes" item={item}></CartItem>
                                     )
                                 })
                             }

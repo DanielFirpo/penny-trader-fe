@@ -13,11 +13,12 @@ function CartItem(props) {
                     }
                 }}></img>
                 <div className="cart-item-column">
-                    <div className="cart-item-title-and-price">
-                        <p className="cart-item-title">{props.item.year} Penny - {props.item.name}</p>
-                        <p className="cart-item-price">${(props.item.price / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-                    </div>
+                    <p className="cart-item-title">{props.item.year} Penny - {props.item.name}</p>
                     <p className="cart-item-description" title={props.item.description}>{props.item.description.length > 140 ? props.item.description.substring(0, 140) + "..." : props.item.description}</p>
+
+                </div>
+                <div id="right-item-column" className="cart-item-column">
+                    <p className="cart-item-price">${(props.item.price / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                     {!props.hideButton ?
                         <div className="cart-item-remove-button" onClick={() => {
                             let cartArray = JSON.parse(localStorage.getItem("cart"));

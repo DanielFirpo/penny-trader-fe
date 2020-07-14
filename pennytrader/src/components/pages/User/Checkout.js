@@ -164,7 +164,7 @@ function Checkout(props) {
                     <div className="checkout-title">Shipping Info</div>
                     <div className="checkout-form-container">
                         <form id="checkout-form" name="register" method="POST">
-                            <div className="checkout-form-row">
+                            <div id="first-and-last" className="checkout-form-row">
                                 <div className="checkout-form-input-container checkout-form-half-width">
                                     <div className="shipping-form-input-title">
                                         <p className="form-field-title">First Name</p>

@@ -109,7 +109,7 @@ function Cart(props) {
                     {/* TODO: Get min purchase amount from server and don't allow them to checkout if subtotal not met. Also get and display tax rate/shipping fee */}
                 </div>
             </div>
-            <div id="cart-buttons">
+            <div id="cart-buttons" className="checkout-buttons">
                 <Link to={"/"} className="cart-back-to-shopping">&#60; Continue Shopping</Link>
                 <Link to={products.length > 0 ? "/checkout" : "/cart"} id="checkout-button" className={products.length > 0 ? "button" : "button-disabled"} >Checkout &gt;</Link>
             </div>
