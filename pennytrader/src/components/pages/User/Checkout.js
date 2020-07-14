@@ -36,7 +36,7 @@ function Checkout(props) {
         email: undefined
     });
 
-    const [taxAndShipping, setTaxAndShipping] = useState({});
+    const [taxAndShipping, setTaxAndShipping] = useState({tax_rate: 0, shipping_fee: 0});
     const [products, setProducts] = useState([]);
 
     const [accepted, setAccepted] = useState(false);
@@ -493,7 +493,7 @@ function Checkout(props) {
                         </div>
                         <form>
                             <div className="row-display">
-                                <p>I fully understand that sales are final, and that Willco offers <strong>absolutely no returns.</strong></p>
+                                <p>I fully understand that sales are final, and that Ultimate Penny Trader offers <strong>absolutely no returns.</strong></p>
                                 <input type="checkbox" checked={accepted} name="accept" placeholder="accept" className="shipping-form-input" id="shipping-form-save" onChange={(e) => { setAccepted(!accepted) }}></input>
                                 {acceptedError && !accepted ? <div style={{marginTop: "15px", color: "red"}} className="row-display"><div style={{width: "25px", height: "25px", marginTop: "0px"}} className="shipping-form-input-error-image"></div>Required </div>: <></>}
                             </div>

@@ -5,10 +5,10 @@ function PrivacyPolicy() {
 
     return (
         <div id="privacy-policy" className="page-height page-padding">
-            <div className="page-title">(Store Name) Privacy Policy</div>
+            <div className="page-title">Ultimate Penny Trader Privacy Policy</div>
             <div>
                 <div id="privacy-subtitle" className="page-subtitle">
-                    This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from (Store URL).
+                    This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from ultimatepennytrader.com.
                 </div>
 
                 <div className="legal-title">WHAT PERSONAL INFORMATION WE COLLECT</div>
@@ -47,7 +47,7 @@ function PrivacyPolicy() {
                 <div className="legal-text">
                     We share your Personal Information with third parties to help us use your Personal Information, as described above.
 
-                    We also use Google Analytics to help us understand how our customers use (Store Name). <a href="https://policies.google.com/privacy">How Google uses your Personal Information.</a> <br></br>
+                    We also use Google Analytics to help us understand how our customers use Ultimate Penny Trader. <a href="https://policies.google.com/privacy">How Google uses your Personal Information.</a> <br></br>
 
                     Finally, we may also share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful requests for information we receive, or to otherwise protect our rights.
                 </div>

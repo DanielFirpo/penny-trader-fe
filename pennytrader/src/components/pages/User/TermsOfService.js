@@ -6,35 +6,35 @@ function TermsOfService() {
         <div id="privacy-policy" className="page-height page-padding">
             <div className="page-title">Terms Of Service</div>
 
-            <p id="privacy-subtitle" className="page-subtitle">These terms and conditions outline the rules and regulations for the use<br/> of [Placeholder Company]'s Website, located at [Placeholder Website URL].</p>
+            <p id="privacy-subtitle" className="page-subtitle">These terms and conditions outline the rules and regulations for the use<br/> of Ultimate Penny Trader's Website, located at ultimatepennytrader.com.</p>
 
-            <p className="legal-text">By accessing this website we assume you accept these terms and conditions. Do not continue to use [Placeholder Website Name] if you do not agree to take all of the terms and conditions stated on this page.</p>
+            <p className="legal-text">By accessing this website we assume you accept these terms and conditions. Do not continue to use Ultimate Penny Trader if you do not agree to take all of the terms and conditions stated on this page.</p>
 
             <p className="legal-text">The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
 
             <h3 className="legal-title"><strong>Cookies</strong></h3>
 
-            <p className="legal-text">We employ the use of cookies. By accessing [Placeholder Website Name], you agreed to use cookies in agreement with the [Placeholder Company]'s Privacy Policy.</p>
+            <p className="legal-text">We employ the use of cookies. By accessing Ultimate Penny Trader, you agreed to use cookies in agreement with the Ultimate Penny Trader's Privacy Policy.</p>
 
             <p className="legal-text">Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p>
 
             <h3 className="legal-title"><strong>License</strong></h3>
 
-            <p className="legal-text">Unless otherwise stated, [Placeholder Company] and/or its licensors own the intellectual property rights for all material on [Placeholder Website Name]. All intellectual property rights are reserved. You may access this from [Placeholder Website Name] for your own personal use subjected to restrictions set in these terms and conditions.</p>
+            <p className="legal-text">Unless otherwise stated, Ultimate Penny Trader and/or its licensors own the intellectual property rights for all material on Ultimate Penny Trader. All intellectual property rights are reserved. You may access this from Ultimate Penny Trader for your own personal use subjected to restrictions set in these terms and conditions.</p>
 
             <p className="legal-text">You must not:</p>
             <ul className="legal-text">
-                <li>Republish material from [Placeholder Website Name]</li>
-                <li>Sell, rent or sub-license material from [Placeholder Website Name]</li>
-                <li>Reproduce, duplicate or copy material from [Placeholder Website Name]</li>
-                <li>Redistribute content from [Placeholder Website Name]</li>
+                <li>Republish material from Ultimate Penny Trader</li>
+                <li>Sell, rent or sub-license material from Ultimate Penny Trader</li>
+                <li>Reproduce, duplicate or copy material from Ultimate Penny Trader</li>
+                <li>Redistribute content from Ultimate Penny Trader</li>
             </ul>
 
             <p className="legal-text">This Agreement shall begin on the date hereof.</p>
 
-            <p className="legal-text">Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. [Placeholder Company] does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of [Placeholder Company],its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, [Placeholder Company] shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
+            <p className="legal-text">Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. Ultimate Penny Trader does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Ultimate Penny Trader, its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, Ultimate Penny Trader shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
 
-            <p className="legal-text">[Placeholder Company] reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p>
+            <p className="legal-text">Ultimate Penny Trader reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p>
 
             <p className="legal-text">You warrant and represent that:</p>
 
@@ -45,7 +45,7 @@ function TermsOfService() {
                 <li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li>
             </ul>
 
-            <p className="legal-text">You hereby grant [Placeholder Company] a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
+            <p className="legal-text">You hereby grant Ultimate Penny Trader a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
 
             <h3 className="legal-title"><strong>Hyperlinking to our Content</strong></h3>
 
@@ -73,11 +73,11 @@ function TermsOfService() {
                 <li>educational institutions and trade associations.</li>
             </ul>
 
-            <p className="legal-text">We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of [Placeholder Company]; and (d) the link is in the context of general resource information.</p>
+            <p className="legal-text">We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of Ultimate Penny Trader; and (d) the link is in the context of general resource information.</p>
 
             <p className="legal-text">These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party’s site.</p>
 
-            <p className="legal-text">If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to [Placeholder Company]. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p>
+            <p className="legal-text">If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to Ultimate Penny Trader. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p>
 
             <p className="legal-text">Approved organizations may hyperlink to our Website as follows:</p>
 
@@ -87,7 +87,7 @@ function TermsOfService() {
                 <li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party’s site.</li>
             </ul>
 
-            <p className="legal-text">No use of [Placeholder Company]'s logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
+            <p className="legal-text">No use of Ultimate Penny Trader's logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
 
             <h3 className="legal-title"><strong>iFrames</strong></h3>
 

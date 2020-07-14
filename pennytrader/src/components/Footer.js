@@ -16,7 +16,7 @@ function Footer() {
             <div id="footer-row" className="page-padding">
                 <div className="footer-column">
                     <div className="footer-column-title">About Us</div>
-                    <span id="footer-about">Welcome to Willco, your number one <br/>  source for all things pennies. We're dedicated <br/> to giving you the very best coins, with a <br/> focus on quality, uniqueness and convenience.</span>
+                    <span id="footer-about">Welcome to Ultimate Penny Trader, your<br/> number one source for all things pennies.<br/> We're dedicated to giving you the very<br/> best coins, with a focus on quality,<br/> uniqueness and convenience.</span>
                 </div>
                 <div id="left-footer-column" className="footer-column">
                     <div className="footer-column-title">HeLPfUl LiNKs</div>
@@ -36,7 +36,7 @@ function Footer() {
                     <div className="footer-column-item"><Link to="/privacy">Privacy Policy</Link></div>
                 </div>
             </div>
-            <div id="footer-copyright">WILLCO © 2020. all rights reserved.<br></br>web shop designed and developed by <a id="daniel-firpo" target="_blank" href="http://danielfirpo.com/">Daniel Firpo</a></div>
+            <div id="footer-copyright">UPT © 2020. all rights reserved.<br></br>web shop designed and developed by <a id="daniel-firpo" target="_blank" href="http://danielfirpo.com/">Daniel Firpo</a></div>
         </div>
     );
 }

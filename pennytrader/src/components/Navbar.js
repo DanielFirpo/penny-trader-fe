@@ -92,15 +92,6 @@ function Navbar() {
                         <div className="navbar-link">
                             <Link to="/contact">CONTACT</Link>
                         </div>
-                        <div className="navbar-link">
-                            <Link to="/cart">LINK</Link>
-                        </div>
-                        <div className="navbar-link">
-                            <Link to="/cart">LINK</Link>
-                        </div>
-                        <div className="navbar-link">
-                            <Link to="/cart">LINK</Link>
-                        </div>
 
                         <div id="navbar-link-end" />
                         {
@@ -193,31 +184,6 @@ function Navbar() {
                                 <Link to="/contact" onClick={() => {
                                     setOpen(false);
                                 }}>CONTACT</Link>
-                            </div>
-                            <div className="navbar-link">
-                                <Link to="/cart" onClick={() => {
-                                    setOpen(false);
-                                }}>LINK</Link>
-                            </div>
-                            <div className="navbar-link">
-                                <Link to="/cart" onClick={() => {
-                                    setOpen(false);
-                                }}>LINK</Link>
-                            </div>
-                            <div className="navbar-link">
-                                <Link to="/cart" onClick={() => {
-                                    setOpen(false);
-                                }}>LINK</Link>
-                            </div>
-                            <div className="navbar-link">
-                                <Link to="/cart" onClick={() => {
-                                    setOpen(false);
-                                }}>LINK</Link>
-                            </div>
-                            <div className="navbar-link">
-                                <Link to="/cart" onClick={() => {
-                                    setOpen(false);
-                                }}>LINK</Link>
                             </div>
                         </div>
                     </div>
