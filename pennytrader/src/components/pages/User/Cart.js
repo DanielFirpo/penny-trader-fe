@@ -10,7 +10,7 @@ function Cart(props) {
 
     const [products, setProducts] = useState([]);
     const [update, setUpdate] = useState();
-    const [taxAndShipping, setTaxAndShipping] = useState({});
+    const [taxAndShipping, setTaxAndShipping] = useState({tax_rate: 0, shipping_fee: 0});
 
     useEffect(() => {
         axios

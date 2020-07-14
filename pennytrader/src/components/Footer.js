@@ -27,8 +27,8 @@ function Footer() {
                 </div>
                 <div id="right-footer-column" className="footer-column">
                     <div className="footer-column-title">Support</div>
-                    <div className="footer-column-item"><a href="mailto:support@company.com">support@company.com</a></div>
-                    <div className="footer-column-item"><a href="tel:18000000000">1(800)-000-0000</a></div>
+                    <div className="footer-column-item"><a href="mailto:support@company.com">support@ultimatepennytrader.com</a></div>
+                    <div className="footer-column-item"><a href="tel:308-3482">308-3482</a></div>
                 </div>
                 <div className="footer-column">
                     <div className="footer-column-title">Legal</div>

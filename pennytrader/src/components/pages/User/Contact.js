@@ -16,8 +16,8 @@ function Contact(props) {
         <div id="contact" className="page-height page-padding">
             <div className="page-title">Contact Us</div>
             <div className="page-subtitle" style={{paddingBottom: "120px", marginTop: "-60px"}}>Need help with an order? Contact us!</div>
-            <div className="contact-value"><p style={{paddingRight: "5px"}}>Email:</p><a>support@company.com</a></div>
-            <div className="contact-value"><p style={{paddingRight: "5px"}}>Phone:</p><a>1(800)-000-0000</a></div>
+            <div className="contact-value"><p style={{paddingRight: "5px"}}>Email:</p><a href="mailto:support@company.com">support@ultimatepennytrader.com</a></div>
+            <div className="contact-value"><p style={{paddingRight: "5px"}}>Phone:</p><a href="tel:308-3482">308-3482</a></div>
         </div>
     );
 }
