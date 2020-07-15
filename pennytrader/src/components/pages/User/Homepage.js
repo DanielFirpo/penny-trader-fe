@@ -71,7 +71,7 @@ function Homepage(props) {
     }
 
     return (
-        <div className="page-padding">
+        <div className="page-padding page-height">
             <h1 className="page-title"></h1>
             <form id="products-search">
                 <div id="coin-filter-container">
