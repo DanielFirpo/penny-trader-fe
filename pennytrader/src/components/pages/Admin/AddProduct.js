@@ -65,7 +65,7 @@ function AddProduct(props) {
             <form id="add-product-form" name="login" method="POST" encType="multipart/form-data">
                 {/* <input type="file" name="imageName" placeholder="Coin Image" className="add-coin-form-input" id="add-coin-form-image" onChange={(e) => { setImageName(e.target.value) }}></input> */}
                 <p className="coin-input-title">Image (optional)</p>
-                <input type="file" ref={imageInput} name="coinImage" onChange={(e) => { setImage(e.target.files[0]);}}/>
+                <input type="file" ref={imageInput} name="file" onChange={(e) => { setImage(e.target.files[0]);}}/>
                 <p className="coin-input-title">Name</p>
                 <input type="text" value={name} name="name" placeholder="Coin Name" className="add-coin-form-input" id="add-coin-form-name" onChange={(e) => { setName(e.target.value) }}></input>
                 <p className="coin-input-title">Year</p>
@@ -89,7 +89,7 @@ function AddProduct(props) {
                 <button type="submit" onClick={(e) => {
                     e.preventDefault();
                     let formData = new FormData();
-                    formData.append('coinImage', image);
+                    formData.append('file', image);
                     formData.append('name', name);
                     formData.append('year', year);
                     formData.append('price', price);

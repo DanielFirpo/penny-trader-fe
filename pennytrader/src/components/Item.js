@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from "react-redux"
 import { setToast, setImage } from "../actions/actions"
 
@@ -9,9 +9,9 @@ function Item(props) {
     return (
         <div className="item-container">
             <div className="item">
-                <img className="item-image" src={process.env.REACT_APP_API_URL + "images/products/" + props.item.image_name} onClick={(e) => {
+                <img className="item-image" src={props.item.image_name == "no-image.png" ? process.env.REACT_APP_API_URL + "images/products/no-image.png" : props.item.image_name} onClick={(e) => {
                     if (props.item.image_name != "no-image.png") {
-                        props.setImage(process.env.REACT_APP_API_URL + "images/products/" + props.item.image_name)
+                        props.setImage(props.item.image_name)
                     }
                 }}></img>
                 <p className="item-title">{props.item.year} Penny - {props.item.name}</p>
