@@ -14,7 +14,7 @@ function Homepage(props) {
 
     const [products, setProducts] = useState([]);
 
-    const [filterOpen, setFilterOpen] = useState(false)
+    const [filterOpen, setFilterOpen] = useState(true)
     const [filter, setFilter] = useState({ searchTerm: "", minPrice: "", maxPrice: "", minYear: "", maxYear: "" });
 
     useEffect(() => {
