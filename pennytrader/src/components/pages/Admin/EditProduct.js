@@ -14,6 +14,8 @@ function EditProduct(props) {
     const [price, setPrice] = useState(qs.parse(props.location.search, { ignoreQueryPrefix: true }).price/100);
     const [description, setDescription] = useState(qs.parse(props.location.search, { ignoreQueryPrefix: true }).description);
     const [status, setStatus] = useState(parseInt(qs.parse(props.location.search, { ignoreQueryPrefix: true }).status));//0 = unlisted, 1 = listed, 2 = sold
+    const [rating, setRating] = useState(parseInt(qs.parse(props.location.search, { ignoreQueryPrefix: true }).rating));
+    const [manufacturer, setManufacturer] = useState(parseInt(qs.parse(props.location.search, { ignoreQueryPrefix: true }).manufacturer));
 
     const [imageRef, setImageRef] = useState();
 
@@ -53,18 +55,53 @@ function EditProduct(props) {
                 <input type="number" value={price} name="price" placeholder="Price of coin in dollars (e.g. 3.25)" className="add-coin-form-input" id="add-coin-form-price" onChange={(e) => { setPrice(e.target.value) }}></input>
                 <p className="coin-input-title">Description</p>
                 <input type="text" value={description} name="description" placeholder="Description of coin" className="add-coin-form-input" id="add-coin-form-description" onChange={(e) => { setDescription(e.target.value) }}></input>
+
+                <p className="coin-input-title">Manufacturer</p>
+                <label>
+                    P
+                    <input type="checkbox" name="p" checked={manufacturer === 0} onChange={() => { setManufacturer(0) }} /><br/>
+                </label>
+                <label>
+                    S
+                    <input type="checkbox" name="s" checked={manufacturer === 1} onChange={() => { setManufacturer(1) }} /><br/>
+                </label>
+                <label>
+                    D
+                    <input type="checkbox" name="d" checked={manufacturer === 2} onChange={() => { setManufacturer(2) }} /><br/>
+                </label>
+
+                <p className="coin-input-title">Rating</p>
+                <label>
+                    Poor
+                    <input type="checkbox" name="poor" checked={rating === 0} onChange={() => { setRating(0) }} /><br/>
+                </label>
+                <label>
+                    Average
+                    <input type="checkbox" name="average" checked={rating === 1} onChange={() => { setRating(1) }} /><br/>
+                </label>
+                <label>
+                    Great
+                    <input type="checkbox" name="great" checked={rating === 2} onChange={() => { setRating(2) }} /><br/>
+                </label>
+                <label>
+                    Excellent
+                    <input type="checkbox" name="excellent" checked={rating === 3} onChange={() => { setRating(3) }} />
+                </label>
+                
+                <p className="coin-input-title">Status</p>
                 <label>
                     Listed
-                    <input type="checkbox" name="listed" checked={status === 1} onChange={() => {setStatus(1)}}/>
+                    <input type="checkbox" name="listed" checked={status === 1} onChange={() => { setStatus(1) }} /><br/>
                 </label>
                 <label>
                     Unlisted
-                    <input type="checkbox" name="unlisted" checked={status === 0} onChange={() => {setStatus(0)}}/>
+                    <input type="checkbox" name="unlisted" checked={status === 0} onChange={() => { setStatus(0) }} /><br/>
                 </label>
                 <label>
                     Sold
-                    <input type="checkbox" name="sold" checked={status === 2} onChange={() => {setStatus(2)}}/>
+                    <input type="checkbox" name="sold" checked={status === 2} onChange={() => { setStatus(2) }} /><br/>
                 </label>
+
                 <button type="submit" onClick={(e) => {
                     e.preventDefault();
                     let formData = new FormData();
@@ -75,6 +112,8 @@ function EditProduct(props) {
                     formData.append('price', price);
                     formData.append('description', description);
                     formData.append('status', status);
+                    formData.append('rating', rating);
+                    formData.append('manufacturer', manufacturer);
 
                     const config = {
                         headers: {

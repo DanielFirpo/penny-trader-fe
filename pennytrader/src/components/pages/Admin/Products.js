@@ -176,7 +176,7 @@ function Products(props) {
                                 </div> */}
                                 <CartItem item={item} hideButton="yes please :D"></CartItem>
                                 <div id="product-buttons-container" style={{ marginTop: "-50px" }}>
-                                    <Link to={{ pathname: 'editproduct', search: `?id=${item.id}&name=${item.name}&year=${item.year}&price=${item.price}&description=${item.description}&status=${item.status}` }}>
+                                    <Link to={{ pathname: 'editproduct', search: `?id=${item.id}&name=${item.name}&year=${item.year}&price=${item.price}&description=${item.description}&status=${item.status}&rating=${item.rating}&manufacturer=${item.manufacturer}` }}>
                                         <div className="product-button">Edit</div>
                                     </Link>
                                     <div className="product-button" onClick={() => {
