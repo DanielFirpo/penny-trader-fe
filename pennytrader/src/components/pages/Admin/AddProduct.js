@@ -107,7 +107,7 @@ function AddProduct(props) {
                 <button onClick={(e) => {
                     e.preventDefault();
                     setCamara(!camara);
-                }}>Switch Camara</button>
+                }}>Switch Camara (current: {camara ? "user" : "environment"})</button>
                 {/* <input type="file" ref={imageInput} name="file" onChange={(e) => { console.log(e.target.files[0]); console.log(webcam.current.getScreenshot()); setImage(e.target.files[0]);}}/> */}
                 <p className="coin-input-title">Name</p>
                 <input type="text" value={name} name="name" placeholder="Coin Name" className="add-coin-form-input" id="add-coin-form-name" onChange={(e) => { setName(e.target.value) }}></input>
