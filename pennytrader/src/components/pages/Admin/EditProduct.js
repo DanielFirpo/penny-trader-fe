@@ -5,6 +5,8 @@ import {useHistory} from "react-router-dom"
 import {connect} from "react-redux"
 import {setToast} from "../../../actions/actions"
 
+import Webcam from "react-webcam";
+
 function EditProduct(props) {
 
     const [error, setError] = useState("");
@@ -16,10 +18,16 @@ function EditProduct(props) {
     const [status, setStatus] = useState(parseInt(qs.parse(props.location.search, { ignoreQueryPrefix: true }).status));//0 = unlisted, 1 = listed, 2 = sold
     const [rating, setRating] = useState(parseInt(qs.parse(props.location.search, { ignoreQueryPrefix: true }).rating));
     const [manufacturer, setManufacturer] = useState(parseInt(qs.parse(props.location.search, { ignoreQueryPrefix: true }).manufacturer));
+    
+    //for the server
+    const [imageBlob, setImageBlob] = useState("");
+    //for preview in browser
+    const [imageBase64, setImageBase64] = useState("");
 
     const [imageRef, setImageRef] = useState();
 
     let imageInput = React.createRef();
+    let webcam = React.createRef();
 
     useEffect(() => {
         setImageRef(imageInput.current)
@@ -46,7 +54,38 @@ function EditProduct(props) {
             <form id="login-form" name="login" method="POST" enctype="multipart/form-data">
                 {/* <input type="file" name="imageName" placeholder="Coin Image" className="add-coin-form-input" id="add-coin-form-image" onChange={(e) => { setImageName(e.target.value) }}></input> */}
                 <p className="coin-input-title">Image</p>
-                <input type="file" ref={imageInput} name="file" onChange={(e) => { setImage(e.target.files[0]);}}/>
+                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{width: 720, height: 720, facingMode: "environment"}} ref={webcam} />
+                <img src={imageBase64}></img>
+                <button onClick={(e) => {
+                    e.preventDefault();
+
+                    //convert base64 data from react-webcam to a Blob so it can be uploaded to server
+
+                    function base64toBlob(base64Data, contentType) {
+                        contentType = contentType || '';
+                        var sliceSize = 1024;
+                        var byteCharacters = atob(base64Data);
+                        var bytesLength = byteCharacters.length;
+                        var slicesCount = Math.ceil(bytesLength / sliceSize);
+                        var byteArrays = new Array(slicesCount);
+                    
+                        for (var sliceIndex = 0; sliceIndex < slicesCount; ++sliceIndex) {
+                            var begin = sliceIndex * sliceSize;
+                            var end = Math.min(begin + sliceSize, bytesLength);
+                    
+                            var bytes = new Array(end - begin);
+                            for (var offset = begin, i = 0; offset < end; ++i, ++offset) {
+                                bytes[i] = byteCharacters[offset].charCodeAt(0);
+                            }
+                            byteArrays[sliceIndex] = new Uint8Array(bytes);
+                        }
+                        return new Blob(byteArrays, { type: contentType });
+                    };
+                    
+                    setImageBase64(webcam.current.getScreenshot({width: 720, height: 720}));
+                    setImageBlob(base64toBlob(webcam.current.getScreenshot({width: 720, height: 720}).split(",")[1], "image/png"));
+                }}>Take Image (or don't to keep old image)</button>
+
                 <p className="coin-input-title">Name</p>
                 <input type="text" value={name} name="name" placeholder="Coin Name" className="add-coin-form-input" id="add-coin-form-name" onChange={(e) => { setName(e.target.value) }}></input>
                 <p className="coin-input-title">Year</p>
