@@ -12,6 +12,7 @@ function AddProduct(props) {
     const [imageBlob, setImageBlob] = useState("");
     //for preview in browser
     const [imageBase64, setImageBase64] = useState("");
+    const [camara, setCamara] = useState(true);//camara facing
     const [year, setYear] = useState(19);
     const [price, setPrice] = useState();
     const [description, setDescription] = useState("");
@@ -72,7 +73,7 @@ function AddProduct(props) {
             <form id="add-product-form" name="login" method="POST" encType="multipart/form-data">
                 {/* <input type="file" name="imageName" placeholder="Coin Image" className="add-coin-form-input" id="add-coin-form-image" onChange={(e) => { setImageName(e.target.value) }}></input> */}
                 <p className="coin-input-title">Image (optional)</p>
-                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{width: 720, height: 720, facingMode: "user"}} ref={webcam} />
+                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{width: 720, height: 720, facingMode: camara ? "user" : "environment"}} ref={webcam} />
                 <img src={imageBase64}></img>
                 <button onClick={(e) => {
                     e.preventDefault();
@@ -103,6 +104,10 @@ function AddProduct(props) {
                     setImageBase64(webcam.current.getScreenshot({width: 720, height: 720}));
                     setImageBlob(base64toBlob(webcam.current.getScreenshot({width: 720, height: 720}).split(",")[1], "image/png"));
                 }}>Take Image</button>
+                <button onClick={(e) => {
+                    e.preventDefault();
+                    setCamara(!camara);
+                }}>Switch Camara</button>
                 {/* <input type="file" ref={imageInput} name="file" onChange={(e) => { console.log(e.target.files[0]); console.log(webcam.current.getScreenshot()); setImage(e.target.files[0]);}}/> */}
                 <p className="coin-input-title">Name</p>
                 <input type="text" value={name} name="name" placeholder="Coin Name" className="add-coin-form-input" id="add-coin-form-name" onChange={(e) => { setName(e.target.value) }}></input>
