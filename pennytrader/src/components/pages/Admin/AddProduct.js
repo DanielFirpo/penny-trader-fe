@@ -29,6 +29,8 @@ function AddProduct(props) {
 
     const [imageRef, setImageRef] = useState();
 
+    const [size, setSize] = useState(720);
+
     let imageInput = React.createRef();
     let webcam = React.createRef();
 
@@ -104,28 +106,29 @@ function AddProduct(props) {
             <form id="add-product-form" name="login" method="POST" encType="multipart/form-data">
                 {/* <input type="file" name="imageName" placeholder="Coin Image" className="add-coin-form-input" id="add-coin-form-image" onChange={(e) => { setImageName(e.target.value) }}></input> */}
                 <p className="coin-input-title">Image (optional)</p>
-                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{ width: 720, height: 720 }} ref={webcam} />
+                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{ width: size, height: size }} ref={webcam} />
                 {/* 720x720 */}
                 <br></br>
                 <button onClick={(e) => {
                     e.preventDefault();
 
-                    setFrontImageBase64(webcam.current.getScreenshot({ width: 720, height: 720 }));
-                    setFrontImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 720, height: 720 }).split(",")[1], "image/png"));
+                    setFrontImageBase64(webcam.current.getScreenshot({ width: size, height: size }));
+                    setFrontImageBlob(base64toBlob(webcam.current.getScreenshot({ width: size, height: size }).split(",")[1], "image/png"));
 
                 }}>Take Front Image</button>
                 <button onClick={(e) => {
                     e.preventDefault();
 
-                    setBackImageBase64(webcam.current.getScreenshot({ width: 720, height: 720 }));
-                    setBackImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 720, height: 720 }).split(",")[1], "image/png"));
+                    setBackImageBase64(webcam.current.getScreenshot({ width: size, height: size }));
+                    setBackImageBlob(base64toBlob(webcam.current.getScreenshot({ width: size, height: size }).split(",")[1], "image/png"));
 
                 }}>Take Back Image</button>
                 <button onClick={(e) => {
                     e.preventDefault();
                     setCamara(!camara);
                 }}>Switch Camara (current: {camara ? "user" : "environment"})</button>
-
+                <input type="number" value={size} name="size" placeholder="Image Size" className="add-coin-form-input" id="add-coin-form-price" onChange={(e) => { setSize(e.target.value) }}></input>
+                
                 <p className="coin-input-title">Front Image</p>
                 <img src={frontImageBase64}></img>
                 <p className="coin-input-title">Back Image</p>
