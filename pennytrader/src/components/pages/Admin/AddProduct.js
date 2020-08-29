@@ -110,15 +110,15 @@ function AddProduct(props) {
                 <button onClick={(e) => {
                     e.preventDefault();
 
-                    setFrontImageBase64(webcam.current.getScreenshot({ width: 20, height: 20 }));
-                    setFrontImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 20, height: 20 }).split(",")[1], "image/png"));
+                    setFrontImageBase64(webcam.current.getScreenshot({ width: 720, height: 720 }));
+                    setFrontImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 720, height: 720 }).split(",")[1], "image/png"));
 
                 }}>Take Front Image</button>
                 <button onClick={(e) => {
                     e.preventDefault();
 
-                    setBackImageBase64(webcam.current.getScreenshot({ width: 20, height: 20 }));
-                    setBackImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 20, height: 20 }).split(",")[1], "image/png"));
+                    setBackImageBase64(webcam.current.getScreenshot({ width: 720, height: 720 }));
+                    setBackImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 720, height: 720 }).split(",")[1], "image/png"));
 
                 }}>Take Back Image</button>
                 <button onClick={(e) => {
