@@ -104,7 +104,7 @@ function AddProduct(props) {
             <form id="add-product-form" name="login" method="POST" encType="multipart/form-data">
                 {/* <input type="file" name="imageName" placeholder="Coin Image" className="add-coin-form-input" id="add-coin-form-image" onChange={(e) => { setImageName(e.target.value) }}></input> */}
                 <p className="coin-input-title">Image (optional)</p>
-                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{ width: 720, height: 720, facingMode: camara ? "user" : { exact: "environment" } }} ref={webcam} />
+                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{ width: 720, height: 720 }} ref={webcam} />
                 <br></br>
                 <button onClick={(e) => {
                     e.preventDefault();
