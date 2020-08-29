@@ -106,21 +106,21 @@ function AddProduct(props) {
             <form id="add-product-form" name="login" method="POST" encType="multipart/form-data">
                 {/* <input type="file" name="imageName" placeholder="Coin Image" className="add-coin-form-input" id="add-coin-form-image" onChange={(e) => { setImageName(e.target.value) }}></input> */}
                 <p className="coin-input-title">Image (optional)</p>
-                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{ width: 550, height: 550 }} height={550} width={550} resizeMode='contain' ref={webcam} />
+                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{ width: 500, height: 500 }} height={500} width={500} resizeMode='contain' ref={webcam} />
                 {/* 720x720 */}
                 <br></br>
                 <button onClick={(e) => {
                     e.preventDefault();
 
-                    setFrontImageBase64(webcam.current.getScreenshot({ width: 550, height: 550 }));
-                    setFrontImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 550, height: 550 }).split(",")[1], "image/png"));
+                    setFrontImageBase64(webcam.current.getScreenshot({ width: 500, height: 500 }));
+                    setFrontImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 500, height: 500 }).split(",")[1], "image/png"));
 
                 }}>Take Front Image</button>
                 <button onClick={(e) => {
                     e.preventDefault();
 
-                    setBackImageBase64(webcam.current.getScreenshot({ width: 550, height: 550 }));
-                    setBackImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 550, height: 550 }).split(",")[1], "image/png"));
+                    setBackImageBase64(webcam.current.getScreenshot({ width: 500, height: 500 }));
+                    setBackImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 500, height: 500 }).split(",")[1], "image/png"));
 
                 }}>Take Back Image</button>
                 <button onClick={(e) => {
