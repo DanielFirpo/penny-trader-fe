@@ -224,6 +224,7 @@ function AddProduct(props) {
                             formData3.append('status', status);
                             formData3.append('rating', rating);
                             formData3.append('manufacturer', manufacturer);
+                            formData2.append('uploadID', uploadID);
 
                             axios.post(`${process.env.REACT_APP_API_URL}admin/add`, formData3, config)
                             .then(function (response) {
