@@ -106,21 +106,21 @@ function AddProduct(props) {
             <form id="add-product-form" name="login" method="POST" encType="multipart/form-data">
                 {/* <input type="file" name="imageName" placeholder="Coin Image" className="add-coin-form-input" id="add-coin-form-image" onChange={(e) => { setImageName(e.target.value) }}></input> */}
                 <p className="coin-input-title">Image (optional)</p>
-                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{ width: 720, height: 720 }} height={720} width={720} resizeMode='contain' ref={webcam} />
+                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{ width: 480, height: 480 }} height={480} width={480} ref={webcam} />
                 {/* 720x720 */}
                 <br></br>
                 <button onClick={(e) => {
                     e.preventDefault();
 
-                    setFrontImageBase64(webcam.current.getScreenshot({ width: 720, height: 720 }));
-                    setFrontImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 720, height: 720 }).split(",")[1], "image/png"));
+                    setFrontImageBase64(webcam.current.getScreenshot({ width: 480, height: 480 }));
+                    setFrontImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 480, height: 480 }).split(",")[1], "image/png"));
 
                 }}>Take Front Image</button>
                 <button onClick={(e) => {
                     e.preventDefault();
 
-                    setBackImageBase64(webcam.current.getScreenshot({ width: 720, height: 720 }));
-                    setBackImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 720, height: 720 }).split(",")[1], "image/png"));
+                    setBackImageBase64(webcam.current.getScreenshot({ width: 480, height: 480 }));
+                    setBackImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 480, height: 480 }).split(",")[1], "image/png"));
 
                 }}>Take Back Image</button>
                 <button onClick={(e) => {
@@ -190,18 +190,6 @@ function AddProduct(props) {
                 </label>
                 <button type="submit" onClick={(e) => {
                     e.preventDefault();
-                    let formData = new FormData();
-                    console.log("SENDING BLOBS:")
-                    console.log([frontImageBlob, backImageBlob]);
-                    formData.append('images', frontImageBlob);
-                    formData.append('images', backImageBlob);
-                    formData.append('name', name);
-                    formData.append('year', year);
-                    formData.append('price', price);
-                    formData.append('description', description);
-                    formData.append('status', status);
-                    formData.append('rating', rating);
-                    formData.append('manufacturer', manufacturer);
 
                     const config = {
                         headers: {
@@ -210,17 +198,56 @@ function AddProduct(props) {
                         }
                     };
 
-                    axios.post(`${process.env.REACT_APP_API_URL}admin/add`, formData, config)
+                    let uploadID = Math.floor(Math.random()*9).toString() + Math.floor(Math.random()*9).toString() + Math.floor(Math.random()*9).toString() + Math.floor(Math.random()*9).toString() + Math.floor(Math.random()*9).toString();
+
+                    let formData1 = new FormData();
+                    formData1.append('image', frontImageBlob);
+                    formData1.append('front', true);
+                    formData1.append('uploadID', uploadID);
+
+                    axios.post(`${process.env.REACT_APP_API_URL}admin/uploadimage`, formData1, config)
+                    .then(function (response) {
+                        console.log("SUCCESS");
+                        let formData2 = new FormData();
+                        formData2.append('image', backImageBlob);
+                        formData2.append('front', false);
+                        formData2.append('uploadID', uploadID);
+
+                        axios.post(`${process.env.REACT_APP_API_URL}admin/uploadimage`, formData2, config)
                         .then(function (response) {
-                            // console.log(response);
-                            props.setToast("Added product")
-                            clearForm();
-                            // history.push("/");
+                            let formData3 = new FormData();
+                            console.log("name: " + name)
+                            formData3.append('name', name);
+                            formData3.append('year', year);
+                            formData3.append('price', price);
+                            formData3.append('description', description);
+                            formData3.append('status', status);
+                            formData3.append('rating', rating);
+                            formData3.append('manufacturer', manufacturer);
+
+                            axios.post(`${process.env.REACT_APP_API_URL}admin/add`, formData3, config)
+                            .then(function (response) {
+                                // console.log(response);
+                                props.setToast("Added product")
+                                clearForm();
+                                // history.push("/");
+                            })
+                            .catch(function (error) {
+                                console.log(error.response)
+                                setError("Error adding")
+                            })
+
                         })
                         .catch(function (error) {
                             console.log(error.response)
-                            setError(error.response)
+                            setError("Error uploading")
                         })
+
+                    })
+                    .catch(function (error) {
+                        console.log(error.response)
+                        setError("Error uploading")
+                    })
                 }} id="add-coin-form-submit-button">Submit</button>
             </form>
             <p>{error}</p>
