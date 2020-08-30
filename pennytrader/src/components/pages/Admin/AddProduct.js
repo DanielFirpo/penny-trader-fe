@@ -106,21 +106,21 @@ function AddProduct(props) {
             <form id="add-product-form" name="login" method="POST" encType="multipart/form-data">
                 {/* <input type="file" name="imageName" placeholder="Coin Image" className="add-coin-form-input" id="add-coin-form-image" onChange={(e) => { setImageName(e.target.value) }}></input> */}
                 <p className="coin-input-title">Image (optional)</p>
-                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{ width: 480, height: 480 }} height={480} width={480} ref={webcam} />
+                <Webcam audio={false} screenshotFormat="image/png" screenshotQuality={1} videoConstraints={{ height: 480, width: 720 }} height={480} width={720} ref={webcam} />
                 {/* 720x720 */}
                 <br></br>
                 <button onClick={(e) => {
                     e.preventDefault();
 
-                    setFrontImageBase64(webcam.current.getScreenshot({ width: 480, height: 480 }));
-                    setFrontImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 480, height: 480 }).split(",")[1], "image/png"));
+                    setFrontImageBase64(webcam.current.getScreenshot({ height: 480, width: 720 }));
+                    setFrontImageBlob(base64toBlob(webcam.current.getScreenshot({ height: 480, width: 720 }).split(",")[1], "image/png"));
 
                 }}>Take Front Image</button>
                 <button onClick={(e) => {
                     e.preventDefault();
 
-                    setBackImageBase64(webcam.current.getScreenshot({ width: 480, height: 480 }));
-                    setBackImageBlob(base64toBlob(webcam.current.getScreenshot({ width: 480, height: 480 }).split(",")[1], "image/png"));
+                    setBackImageBase64(webcam.current.getScreenshot({ height: 480, width: 720 }));
+                    setBackImageBlob(base64toBlob(webcam.current.getScreenshot({height: 480, width: 720 }).split(",")[1], "image/png"));
 
                 }}>Take Back Image</button>
                 <button onClick={(e) => {
