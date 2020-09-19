@@ -13,7 +13,7 @@ function Item(props) {
             <div className="item">
                 <img className="item-image" src={imageSelection == "no-image.png" ? process.env.REACT_APP_API_URL + "images/products/no-image.png" : imageSelection} onClick={(e) => {
                     if (props.item.image_name != "no-image.png") {
-                        props.setImage(props.item.image_name)
+                        props.setImage(imageSelection)
                     }
                 }}></img>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
