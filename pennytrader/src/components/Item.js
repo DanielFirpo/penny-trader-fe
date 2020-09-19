@@ -20,7 +20,7 @@ function Item(props) {
                     <div style={{ fontSize: "20px", cursor: "pointer" }} onClick={() => { setImageSelection(props.item.front_image_name)}}>&#60;</div>
                     <div style={{ fontSize: "20px", cursor: "pointer" }} onClick={() => { setImageSelection(props.item.back_image_name)}}>&gt;</div>
                 </div>
-                <p className="item-title">{props.item.year} Penny - {props.item.name}</p>
+                <p className="item-title">{props.item.year}{props.item.manufacturer == 1 ? "S" : ""}{props.item.manufacturer == 2 ? "D" : ""} Penny - {props.item.name} <br/><br/>{props.item.rating == 0 ? "Poor" : ""}{props.item.rating == 1 ? "Good" : ""}{props.item.rating == 2 ? "Great" : ""}{props.item.rating == 4 ? "Excellent" : ""}</p>
                 <p className="item-description" title={props.item.description}>{props.item.description.length > 140 ? props.item.description.substring(0, 140) + "..." : props.item.description}</p>
                 <div className="item-price-and-add">
                     <p className="item-price">${(props.item.price / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
